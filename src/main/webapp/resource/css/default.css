@@ -1,0 +1,46 @@
+* {
+	margin: 0px;
+}
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.Morinda-label-td {
+	text-align: right;
+	text-indent: 5px;
+	width: 120px;
+	font-weight: bold;
+}
+
+.Morinda-field-td {
+	text-align: left;
+	min-width: 200px;
+}
+
+.Morinda-row {
+	height: 35px;
+}
+
+.Morinda-table {
+	width: 100%;
+	float: left;
+}
+
+.Morinda-text{
+	display: inline-block;
+	padding: 5px 14px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+}

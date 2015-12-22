@@ -1,0 +1,52 @@
+@charset "utf-8";
+/*调整分页数字条*/
+.page-number-strip{
+	clear: both;
+	float:right;
+	line-height: -32px;
+	margin-top:-32px;
+	margin-right: 328px;/*这个值越大就越靠中间*/
+	text-align: center;
+}
+#page_number_id{
+	border-radius:4px;
+	display: inline-block;
+	padding: 1.5px 6px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	background-image: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.btn-page-confirm{
+	color:#fff;
+	border-radius:4px;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-repeat: repeat-x;
+	border-color: #28a4c9;
+	background-image: -webkit-linear-gradient(top,#5bc0de 0,#2aabd2 100%);
+	border: 1px solid transparent;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	
+}

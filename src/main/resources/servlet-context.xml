@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:oscache="http://www.springmodules.org/schema/oscache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 	 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+	 	 http://www.springframework.org/schema/context
+	 	 http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+	 	 http://www.springframework.org/schema/aop 
+	 	 http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+	 	 http://www.springframework.org/schema/tx 
+	 	 http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
+	 	 http://www.springmodules.org/schema/oscache 
+	 	 http://www.springmodules.org/schema/cache/springmodules-oscache.xsd
+	 	 http://www.springframework.org/schema/mvc
+	 	 http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+	<!-- base-package 如果多个，用“,”分隔 -->
+	<context:component-scan base-package="com.name.project.**.web.controller"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	
+
+	<!-- 这个映射配置主要是用来进行静态资源的访问 -->
+ 	<mvc:resources mapping="/plugins/**" location="/plugins/" cache-period="31556926"/> 
+ 	<mvc:resources mapping="/resource/**" location="/resource/" />  
+ 	<mvc:resources mapping="/jsp/**" location="/jsp/" /> 
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/" /> 
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- Only needed because we require fileupload in the org.springframework.samples.mvc.fileupload package -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+	    <property name="defaultEncoding">
+			<value>UTF-8</value>
+		</property>
+		<property name="maxUploadSize">
+			<value>10000000</value><!-- 上传文件大小限制为100M -->
+		</property>
+	</bean>
+
+	<mvc:annotation-driven/>
+	
+	<!--通知spring使用cglib而不是jdk的来生成代理方法 AOP可以拦截到Controller-->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+</beans>
